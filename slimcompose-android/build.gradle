@@ -1,0 +1,23 @@
+aioConfig {
+    androidAio {
+        targetSdkVersion = 23
+        compileSdkVersion = 23
+        minSdkVersion = 16
+    }
+}
+
+
+apply plugin: 'android-lib-aio'
+apply plugin: 'publishing-aio'
+
+dependencies {
+    compile project(':slimcompose-core')
+    compile slimBusCompileDep
+    compile butterknifeCompileDep
+    compile daggerCompileDep
+    compile "org.glassfish:javax.annotation:$javaxAnnotationVer"
+    apt daggerAptDep
+
+    compile "com.annimon:stream:$annimonStreamVersion"
+    compile "com.slimgears.slimasync:slimasync-android:$slimAsyncVersion"
+}

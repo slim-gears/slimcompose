@@ -1,0 +1,4 @@
+com.slimgears.slimcompose.apt.InjectFromAnnotationProcessor
+dagger.internal.codegen.ComponentProcessor
+butterknife.internal.ButterKnifeProcessor
+com.slimgears.slimbus.apt.SubscribeAnnotationProcessor

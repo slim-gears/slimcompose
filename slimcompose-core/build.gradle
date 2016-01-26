@@ -1,0 +1,13 @@
+aioConfig {
+    publishingAio {
+        description = 'Slim Compose Core Library'
+        labels = ['java','compose', 'dagger']
+    }
+}
+
+apply plugin: 'java-lib-aio'
+apply plugin: 'publishing-aio'
+
+dependencies {
+    compile daggerCompileDep
+}

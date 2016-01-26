@@ -1,0 +1,23 @@
+ext {
+    javaPoetVersion = '1.0.0'
+    guavaVersion = '18.0'
+    googleCompileTestingVersion = '0.6'
+    googleTruthVersion = '0.25'
+    appacheCommonsIoVersion = '2.4'
+    annimonStreamVersion = '1.0.3'
+    javaxAnnotationVer = '10.0-b28'
+    slimAsyncVersion = '0.3.2'
+    slimAptVersion = '0.1.4'
+
+    slimBusVersion = '0.3.1'
+    slimBusCompileDep = "com.slimgears.slimbus:slimbus-android:$slimBusVersion"
+    slimBusAptDep = "com.slimgears.slimbus:slimbus-apt:$slimBusVersion"
+
+    daggerVersion = '2.0.1'
+    daggerCompileDep = "com.google.dagger:dagger:$daggerVersion"
+    daggerAptDep = "com.google.dagger:dagger-compiler:$daggerVersion"
+
+    butterknifeVersion = '7.0.1'
+    butterknifeCompileDep = "com.jakewharton:butterknife:$butterknifeVersion"
+    butterknifeAptDep = "com.jakewharton:butterknife:$butterknifeVersion"
+}

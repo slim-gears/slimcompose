@@ -1,0 +1,28 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven { url "https://plugins.gradle.org/m2/" }
+        maven { url "https://jitpack.io" }
+    }
+
+    dependencies {
+        classpath 'com.github.slim-gears:gradle-aio:0.4.9'
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        maven { url "https://jitpack.io" }
+        mavenLocal()
+    }
+}
+
+apply from: "$rootProject.projectDir/versions.gradle"
+apply plugin: 'root-project-aio'
+
+aioConfig {
+    publishingAio {
+        githubOrg = 'slim-gears'
+    }
+}

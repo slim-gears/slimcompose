@@ -1,0 +1,1 @@
+include ':slimcompose-apt', ':slimcompose-android', ':slimcompose-core', ':slimcompose-example'

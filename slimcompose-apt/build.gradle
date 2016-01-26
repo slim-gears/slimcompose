@@ -1,0 +1,19 @@
+import org.gradle.internal.jvm.Jvm
+
+apply plugin: 'java-lib-aio'
+apply plugin: 'publishing-aio'
+
+dependencies {
+    compile "com.github.slim-gears:slimapt:$slimAptVersion"
+    compile daggerCompileDep
+    compile daggerAptDep
+    compile butterknifeAptDep
+    compile slimBusAptDep
+    compile project(':slimcompose-core')
+
+    testCompile "com.github.slim-gears:slimapt:$slimAptVersion:tests"
+    testCompile "com.google.testing.compile:compile-testing:$googleCompileTestingVersion"
+    testCompile "com.google.truth:truth:$googleTruthVersion"
+
+    testCompile files(Jvm.current().getToolsJar())
+}
