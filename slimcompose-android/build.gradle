@@ -4,8 +4,11 @@ aioConfig {
         compileSdkVersion = 23
         minSdkVersion = 16
     }
+    publishingAio {
+        description = 'Slim Compose Android Library'
+        labels = ['java','compose', 'dagger', 'android']
+    }
 }
-
 
 apply plugin: 'android-lib-aio'
 apply plugin: 'publishing-aio'
