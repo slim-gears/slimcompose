@@ -2,29 +2,19 @@
 // Refer to LICENSE.txt for license details
 package com.slimgears.slimcompose.example;
 
-import android.app.Application;
-
+import com.slimgears.slimcompose.app.AbstractApp;
 import com.slimgears.slimcompose.injection.AndroidServiceModule;
-import com.slimgears.slimcompose.injection.HasComponent;
 
 /**
  * Created by ditskovi on 1/26/2016.
  *
  */
-public class App extends Application implements HasComponent<AppComponent> {
-    private AppComponent mAppComponent;
-
+public class App extends AbstractApp<AppComponent> {
     @Override
-    public void onCreate() {
-        super.onCreate();
-        mAppComponent = DaggerAppComponent.builder()
+    protected AppComponent createComponent() {
+        return DaggerAppComponent.builder()
                 .appModule(new AppModule(this))
                 .androidServiceModule(new AndroidServiceModule())
                 .build();
-    }
-
-    @Override
-    public AppComponent getComponent() {
-        return mAppComponent;
     }
 }
