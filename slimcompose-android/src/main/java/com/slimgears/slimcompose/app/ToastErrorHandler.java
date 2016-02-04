@@ -1,4 +1,4 @@
-package com.slimgears.slimcompose.services;
+package com.slimgears.slimcompose.app;
 
 import android.content.Context;
 import android.util.Log;

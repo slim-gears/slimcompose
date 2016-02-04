@@ -1,4 +1,4 @@
-package com.slimgears.slimcompose.injection;
+package com.slimgears.slimcompose.app;
 
 import android.app.NotificationManager;
 import android.content.Context;
@@ -7,8 +7,8 @@ import android.content.res.Resources;
 import android.net.ConnectivityManager;
 
 import com.slimgears.slimbus.EventBus;
-import com.slimgears.slimcompose.services.ActivityResultDispatcher;
-import com.slimgears.slimcompose.services.ErrorHandler;
+import com.slimgears.slimcompose.activity.ActivityResultDispatcher;
+import com.slimgears.slimprefs.PreferenceInjector;
 
 /**
  * Created by ditskovi on 10/23/2015.
@@ -23,4 +23,5 @@ public interface AppComponentBase {
     NotificationManager notificationManager();
     ConnectivityManager connectivityManager();
     EventBus eventBus();
+    PreferenceInjector preferenceInjector();
 }

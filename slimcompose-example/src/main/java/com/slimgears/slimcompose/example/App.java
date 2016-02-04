@@ -3,7 +3,7 @@
 package com.slimgears.slimcompose.example;
 
 import com.slimgears.slimcompose.app.AbstractApp;
-import com.slimgears.slimcompose.injection.AndroidServiceModule;
+import com.slimgears.slimcompose.app.AndroidServiceModule;
 
 /**
  * Created by ditskovi on 1/26/2016.

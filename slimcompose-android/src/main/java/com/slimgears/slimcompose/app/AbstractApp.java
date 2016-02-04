@@ -5,8 +5,8 @@ package com.slimgears.slimcompose.app;
 import android.app.Application;
 
 import com.slimgears.slimbus.EventBus;
-import com.slimgears.slimcompose.injection.AppComponentBase;
 import com.slimgears.slimcompose.injection.HasComponent;
+import com.slimgears.slimprefs.PreferenceBinding;
 
 /**
  * Created by ditskovi on 1/26/2016.
@@ -16,6 +16,7 @@ public abstract class AbstractApp<C extends AppComponentBase> extends Applicatio
     private final Thread.UncaughtExceptionHandler mPrevExceptionHandler;
     private C mComponent;
     private EventBus.Subscription mSubscription;
+    private PreferenceBinding mPreferenceBinding;
 
     protected AbstractApp() {
         mPrevExceptionHandler = Thread.getDefaultUncaughtExceptionHandler();
@@ -34,11 +35,13 @@ public abstract class AbstractApp<C extends AppComponentBase> extends Applicatio
         mComponent = createComponent();
         super.onCreate();
         mSubscription = getComponent().eventBus().subscribe(this);
+        mPreferenceBinding = getComponent().preferenceInjector().bind(this);
     }
 
     @Override
     public void onTerminate() {
         mSubscription.unsubscribe();
+        mPreferenceBinding.unbind();
         super.onTerminate();
     }
 

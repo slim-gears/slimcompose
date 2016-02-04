@@ -2,7 +2,7 @@
 // Refer to LICENSE.txt for license details
 package com.slimgears.slimcompose.example;
 
-import com.slimgears.slimcompose.injection.ActivityComponentBase;
+import com.slimgears.slimcompose.activity.ActivityComponentBase;
 import com.slimgears.slimcompose.injection.PerActivity;
 
 import dagger.Component;

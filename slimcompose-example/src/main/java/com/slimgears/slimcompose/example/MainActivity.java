@@ -1,66 +1,58 @@
 package com.slimgears.slimcompose.example;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
-import com.slimgears.slimbus.EventBus;
 import com.slimgears.slimbus.Subscribe;
+import com.slimgears.slimcompose.activity.AbstractActivity;
 import com.slimgears.slimcompose.injection.Components;
-import com.slimgears.slimcompose.injection.HasComponent;
+import com.slimgears.slimcompose.injection.DependencyInjector;
 import com.slimgears.slimcompose.injection.InjectFrom;
+import com.slimgears.slimprefs.BindPreference;
 
-import javax.inject.Inject;
+import java.util.Date;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 @InjectFrom(MainActivityComponent.class)
-public class MainActivity extends AppCompatActivity implements HasComponent<MainActivityComponent> {
+public class MainActivity extends AbstractActivity<MainActivityComponent, MainActivity> {
+    @BindPreference Date mFirstRunDate = new Date();
+    @BindPreference(twoWay = true) int mRunCount = 0;
+
     @Bind(R.id.toolbar) Toolbar mToolbar;
     @Bind(R.id.hello_text) TextView mHelloText;
-    @Inject EventBus mEventBus;
-
-    private MainActivityComponent mComponent;
-    private EventBus.Subscription mSubscription;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
-        setSupportActionBar(mToolbar);
-
-        mComponent = DaggerMainActivityComponent.builder()
+    protected MainActivityComponent createComponent() {
+        return DaggerMainActivityComponent.builder()
                 .appComponent(Components.getAppComponent(getApplication(), AppComponent.class))
                 .mainActivityModule(new MainActivityModule(this))
                 .build();
-
-        DaggerMainActivity_Injector.builder()
-                .mainActivityComponent(mComponent)
-                .build()
-                .inject(this);
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-        mSubscription = mEventBus.subscribe(this);
+    protected DependencyInjector<MainActivity> createInjector(MainActivityComponent component) {
+        return DaggerMainActivity_Injector.builder()
+                .mainActivityComponent(component)
+                .build();
     }
 
     @Override
-    protected void onPause() {
-        mSubscription.unsubscribe();
-        super.onPause();
+    protected void onSetContentView() {
+        setContentView(R.layout.activity_main);
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setSupportActionBar(mToolbar);
+        mRunCount++;
     }
 
     @OnClick(R.id.fab) void onFabClicked(View view) {
@@ -92,10 +84,5 @@ public class MainActivity extends AppCompatActivity implements HasComponent<Main
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public MainActivityComponent getComponent() {
-        return mComponent;
     }
 }

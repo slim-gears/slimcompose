@@ -1,12 +1,12 @@
-package com.slimgears.slimcompose.injection;
+package com.slimgears.slimcompose.activity;
 
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.view.LayoutInflater;
 
-import com.slimgears.slimcompose.extensibility.ActivityPlugin;
 import com.slimgears.slimcompose.extensibility.DefaultPluginContainer;
 import com.slimgears.slimcompose.extensibility.PluginContainer;
+import com.slimgears.slimcompose.injection.PerActivity;
 
 import dagger.Module;
 import dagger.Provides;

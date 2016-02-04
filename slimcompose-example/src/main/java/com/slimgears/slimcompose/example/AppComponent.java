@@ -2,8 +2,8 @@
 // Refer to LICENSE.txt for license details
 package com.slimgears.slimcompose.example;
 
-import com.slimgears.slimcompose.injection.AndroidServiceModule;
-import com.slimgears.slimcompose.injection.AppComponentBase;
+import com.slimgears.slimcompose.app.AndroidServiceModule;
+import com.slimgears.slimcompose.app.AppComponentBase;
 
 import javax.inject.Singleton;
 

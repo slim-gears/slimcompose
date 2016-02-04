@@ -1,4 +1,4 @@
-package com.slimgears.slimcompose.services;
+package com.slimgears.slimcompose.app;
 
 /**
  * Created by ditskovi on 10/31/2015.

@@ -1,4 +1,4 @@
-package com.slimgears.slimcompose.injection;
+package com.slimgears.slimcompose.app;
 
 import android.app.Application;
 import android.content.Context;
@@ -8,13 +8,12 @@ import android.preference.PreferenceManager;
 
 import com.slimgears.slimbus.EventBus;
 import com.slimgears.slimbus.EventBusFactory;
-import com.slimgears.slimcompose.services.ActivityResultDispatcher;
-import com.slimgears.slimcompose.services.CompositeErrorHandler;
-import com.slimgears.slimcompose.services.DefaultActivityResultDispatcher;
-import com.slimgears.slimcompose.services.DefaultCompositeErrorHandler;
-import com.slimgears.slimcompose.services.ErrorHandler;
-import com.slimgears.slimcompose.services.LogcatErrorHandler;
-import com.slimgears.slimcompose.services.ToastErrorHandler;
+import com.slimgears.slimcompose.activity.ActivityResultDispatcher;
+import com.slimgears.slimcompose.activity.DefaultActivityResultDispatcher;
+import com.slimgears.slimprefs.PreferenceInjector;
+import com.slimgears.slimprefs.PreferenceInjectorFactory;
+import com.slimgears.slimprefs.PreferenceProvider;
+import com.slimgears.slimprefs.SharedPreferenceProvider;
 
 import javax.inject.Singleton;
 
@@ -29,10 +28,12 @@ import dagger.Provides;
 public class AppModuleBase {
     private final Application mApp;
     private final EventBusFactory mBusFactory;
+    private final PreferenceInjectorFactory mPreferenceInjectorFactory;
 
-    public AppModuleBase(Application app, EventBusFactory busFactory) {
+    public AppModuleBase(Application app, EventBusFactory busFactory, PreferenceInjectorFactory preferenceInjectorFactory) {
         mApp = app;
         mBusFactory = busFactory;
+        mPreferenceInjectorFactory = preferenceInjectorFactory;
     }
 
     @Provides @Singleton
@@ -70,6 +71,16 @@ public class AppModuleBase {
     @Provides @Singleton
     public EventBus provideEventBus(Context context) {
         return mBusFactory.createEventBus();
+    }
+
+    @Provides @Singleton
+    public PreferenceProvider providePreferenceProvider(Context context) {
+        return new SharedPreferenceProvider(context);
+    }
+
+    @Provides @Singleton
+    public PreferenceInjector providePreferenceInjector(PreferenceProvider preferenceProvider) {
+        return mPreferenceInjectorFactory.createInjector(preferenceProvider);
     }
 
     protected void addErrorHandlers(CompositeErrorHandler compositeErrorHandler) {

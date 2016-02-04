@@ -1,12 +1,12 @@
 // Copyright 2015 Denis Itskovich
 // Refer to LICENSE.txt for license details
-package com.slimgears.slimcompose.extensibility;
+package com.slimgears.slimcompose.service;
 
 import android.app.Service;
 import android.content.Intent;
 
+import com.slimgears.slimcompose.extensibility.AbstractPlugin;
 import com.slimgears.slimcompose.injection.Components;
-import com.slimgears.slimcompose.injection.ServiceComponentBase;
 
 /**
  * Created by ditskovi on 11/6/2015.

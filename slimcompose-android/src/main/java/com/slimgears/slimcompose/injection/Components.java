@@ -7,6 +7,10 @@ import android.app.Application;
 import android.app.Fragment;
 import android.app.Service;
 
+import com.slimgears.slimcompose.activity.ActivityComponentBase;
+import com.slimgears.slimcompose.app.AppComponentBase;
+import com.slimgears.slimcompose.service.ServiceComponentBase;
+
 /**
  * Created by ditskovi on 1/25/2016.
  *

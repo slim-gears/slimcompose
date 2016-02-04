@@ -1,4 +1,4 @@
-package com.slimgears.slimcompose.services;
+package com.slimgears.slimcompose.activity;
 
 import android.app.Fragment;
 import android.os.Bundle;

@@ -7,7 +7,9 @@ import android.app.Application;
 import com.slimgears.slimbus.BusFactory;
 import com.slimgears.slimbus.EventBusFactory;
 import com.slimgears.slimbus.SlimEventBus;
-import com.slimgears.slimcompose.injection.AppModuleBase;
+import com.slimgears.slimcompose.app.AppModuleBase;
+import com.slimgears.slimprefs.PreferenceFactory;
+import com.slimgears.slimprefs.PreferenceInjectorFactory;
 
 import dagger.Module;
 
@@ -20,7 +22,10 @@ public class AppModule extends AppModuleBase {
     @BusFactory(busClass = SlimEventBus.class)
     interface AppBusFactory extends EventBusFactory {}
 
+    @PreferenceFactory
+    interface AppPreferenceFactory extends PreferenceInjectorFactory {}
+
     public AppModule(Application app) {
-        super(app, GeneratedAppModule_AppBusFactory.INSTANCE);
+        super(app, GeneratedAppModule_AppBusFactory.INSTANCE, GeneratedAppModule_AppPreferenceFactory.INSTANCE);
     }
 }

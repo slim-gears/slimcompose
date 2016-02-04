@@ -1,6 +1,6 @@
 // Copyright 2015 Denis Itskovich
 // Refer to LICENSE.txt for license details
-package com.slimgears.slimcompose.services;
+package com.slimgears.slimcompose.app;
 
 import java.util.LinkedList;
 import java.util.List;

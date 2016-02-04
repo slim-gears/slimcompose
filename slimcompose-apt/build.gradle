@@ -9,6 +9,8 @@ dependencies {
     compile daggerAptDep
     compile butterknifeAptDep
     compile slimBusAptDep
+    compile slimPrefsAptDep
+
     compile project(':slimcompose-core')
 
     testCompile "com.github.slim-gears:slimapt:$slimAptVersion:tests"

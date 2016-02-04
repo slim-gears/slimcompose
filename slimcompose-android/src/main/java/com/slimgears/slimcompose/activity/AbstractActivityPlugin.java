@@ -1,11 +1,11 @@
 // Copyright 2015 Denis Itskovich
 // Refer to LICENSE.txt for license details
-package com.slimgears.slimcompose.extensibility;
+package com.slimgears.slimcompose.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
 
-import com.slimgears.slimcompose.injection.ActivityComponentBase;
+import com.slimgears.slimcompose.extensibility.AbstractPlugin;
 import com.slimgears.slimcompose.injection.Components;
 
 /**

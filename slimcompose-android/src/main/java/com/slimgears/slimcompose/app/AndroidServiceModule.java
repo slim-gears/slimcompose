@@ -1,6 +1,6 @@
 // Copyright 2015 Denis Itskovich
 // Refer to LICENSE.txt for license details
-package com.slimgears.slimcompose.injection;
+package com.slimgears.slimcompose.app;
 
 import android.app.NotificationManager;
 import android.content.Context;

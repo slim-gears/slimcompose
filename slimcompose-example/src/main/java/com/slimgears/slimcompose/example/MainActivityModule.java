@@ -4,7 +4,7 @@ package com.slimgears.slimcompose.example;
 
 import android.app.Activity;
 
-import com.slimgears.slimcompose.injection.ActivityModuleBase;
+import com.slimgears.slimcompose.activity.ActivityModuleBase;
 
 import dagger.Module;
 
