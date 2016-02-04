@@ -9,7 +9,7 @@ ext {
     slimAsyncVersion = '0.3.2'
     slimAptVersion = '0.1.4'
 
-    slimPrefsVersion = '0.1.9'
+    slimPrefsVersion = '0.1.10'
     slimPrefsCompileDep = "com.github.slim-gears.slimprefs:slimprefs-android:$slimPrefsVersion"
     slimPrefsAptDep = "com.github.slim-gears.slimprefs:slimprefs-apt:$slimPrefsVersion"
 
