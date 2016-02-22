@@ -9,5 +9,6 @@ apply plugin: 'java-lib-aio'
 apply plugin: 'publishing-aio'
 
 dependencies {
+    compile "javax.annotation:jsr250-api:$jsr250ApiVersion"
     compile daggerCompileDep
 }

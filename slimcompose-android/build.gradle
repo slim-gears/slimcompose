@@ -21,7 +21,6 @@ dependencies {
     compile daggerCompileDep
     compile slimPrefsCompileDep
 
-    compile "org.glassfish:javax.annotation:$javaxAnnotationVer"
     apt daggerAptDep
 
     compile "com.annimon:stream:$annimonStreamVersion"
